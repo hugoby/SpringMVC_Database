@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <!-- 支持动态调用 -->
+        <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+        <!-- 设置开发模式 -->
+        <constant name="struts.devMode" value="true"/>
+
+        <!--<package name="front" namespace="/" extends="struts-default">-->
+
+                <!--<action name="user" class="hello.HelloAction">-->
+                        <!--<result name="success">/index.jsp</result>-->
+                <!--</action>-->
+        <!--</package>-->
+        <package name="front" namespace="/" extends="struts-default">
+                <!--<global-results>-->
+                        <!--<result name="error">/error.jsp</result>-->
+                <!--</global-results>-->
+                <!--<global-exception-mappings>-->
+                        <!--<exception-mapping exception="java.lang.Exception" result="error"/>-->
+                <!--</global-exception-mappings>-->
+                <action name="login" class="com.database.ssh.action.UserLoginAction" method="execute">
+                        <!-- 定义三个逻辑视图和物理资源之间的映射 -->
+                        <result name="input">Users_login.jsp</result>
+                        <result name="error">Users_login_error.jsp</result>
+                        <result name="success">Users_login_success.jsp</result>
+                </action>
+        </package>
+</struts>
